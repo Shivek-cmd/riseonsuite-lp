@@ -1,0 +1,189 @@
+<style>
+  .site-header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.94);
+    border-bottom: 1px solid var(--color-border);
+    backdrop-filter: blur(14px);
+  }
+
+  .site-header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 72px;
+  }
+
+  .site-header__brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    color: var(--color-dark);
+    font-weight: 700;
+  }
+
+  .site-header__logo {
+    width: 156px;
+    height: auto;
+  }
+
+  .site-header__nav {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    color: var(--color-dark);
+    font-size: var(--text-sm);
+    font-weight: 500;
+  }
+
+  .site-header__nav a {
+    position: relative;
+    padding-block: 0.35rem;
+  }
+
+  .site-header__nav a::after {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    content: "";
+    background: var(--color-primary);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--ease);
+  }
+
+  .site-header__nav a:hover::after,
+  .site-header__nav a:focus-visible::after {
+    transform: scaleX(1);
+  }
+
+  .site-header__actions {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+  }
+
+  .site-header__action {
+    display: inline-flex;
+    min-width: 96px;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+    padding: 0.7rem 1.35rem;
+    border: 2px solid var(--color-primary);
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
+    font-weight: 700;
+    line-height: 1;
+    transition: background-color var(--ease), color var(--ease), border-color var(--ease), transform var(--ease);
+  }
+
+  .site-header__action:hover {
+    filter: brightness(0.98);
+  }
+
+  .site-header__action--primary {
+    color: var(--color-surface);
+    background: var(--color-primary);
+  }
+
+  .site-header__action--primary:hover {
+    background: var(--color-primary-hover);
+    border-color: var(--color-primary-hover);
+  }
+
+  .site-header__action--outline {
+    color: var(--color-primary);
+    background: var(--color-surface);
+  }
+
+  .site-header__action--outline:hover {
+    color: var(--color-surface);
+    background: var(--color-primary);
+  }
+
+  .site-header__menu {
+    display: none;
+    width: 2.75rem;
+    height: 2.75rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-md);
+    color: var(--color-dark);
+    background: var(--color-surface-soft);
+  }
+
+  @media (max-width: 900px) {
+    .site-header__nav,
+    .site-header__actions {
+      display: none;
+    }
+
+    .site-header__menu {
+      display: inline-flex;
+    }
+
+    .site-header.is-open .site-header__nav,
+    .site-header.is-open .site-header__actions {
+      display: flex;
+      grid-column: 1 / -1;
+      width: 100%;
+    }
+
+    .site-header.is-open .site-header__inner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+      padding-block: 0.875rem;
+    }
+
+    .site-header.is-open .site-header__nav,
+    .site-header.is-open .site-header__actions {
+      align-items: stretch;
+      flex-direction: column;
+    }
+  }
+</style>
+
+<header class="site-header" data-site-header>
+  <div class="container site-header__inner">
+    <a class="site-header__brand" href="/">
+      <img class="site-header__logo" src="https://assets.cdn.filesafe.space/URLV5WPtDX0lzOYCl4Z9/media/69f892598de8b0ffd968a5a9.svg" alt="RiseON Suite">
+    </a>
+
+    <nav class="site-header__nav" aria-label="Primary navigation">
+      <a href="/">Home</a>
+      <a href="/pricing">Pricing</a>
+      <a href="/about-us">About Us</a>
+      <a href="/contact">Contact Us</a>
+    </nav>
+
+    <div class="site-header__actions">
+      <a class="site-header__action site-header__action--primary" href="https://riseon.happypeopleai.com/signup">Sign Up</a>
+      <a class="site-header__action site-header__action--outline" href="https://riseon.happypeopleai.com/login">Log In</a>
+    </div>
+
+    <button class="site-header__menu" type="button" aria-label="Toggle menu" aria-expanded="false" data-site-menu>
+      Menu
+    </button>
+  </div>
+</header>
+
+<script>
+  (() => {
+    const header = document.querySelector("[data-site-header]");
+    const menu = document.querySelector("[data-site-menu]");
+
+    if (!header || !menu) return;
+
+    menu.addEventListener("click", () => {
+      const isOpen = header.classList.toggle("is-open");
+      menu.setAttribute("aria-expanded", String(isOpen));
+    });
+  })();
+</script>

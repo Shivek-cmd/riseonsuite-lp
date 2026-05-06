@@ -1,0 +1,125 @@
+<style>
+  .site-footer {
+    color: var(--color-text);
+    background: var(--color-surface-soft);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .site-footer__inner {
+    display: grid;
+    grid-template-columns: 1.4fr repeat(3, 1fr);
+    gap: 2.5rem;
+    padding-block: 4rem 2rem;
+  }
+
+  .site-footer__brand {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .site-footer__logo {
+    width: 176px;
+    height: auto;
+  }
+
+  .site-footer__copy {
+    max-width: 24rem;
+    margin-top: 0.875rem;
+  }
+
+  .site-footer__title {
+    margin-bottom: 0.875rem;
+    color: var(--color-dark);
+    font-size: var(--text-sm);
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .site-footer__list {
+    display: grid;
+    gap: 0.625rem;
+    list-style: none;
+  }
+
+  .site-footer__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-block: 1.25rem;
+    border-top: 1px solid var(--color-border);
+    font-size: var(--text-sm);
+  }
+
+  @media (max-width: 900px) {
+    .site-footer__inner {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .site-footer__inner,
+    .site-footer__bottom {
+      grid-template-columns: 1fr;
+    }
+
+    .site-footer__bottom {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  }
+</style>
+
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <div>
+      <a class="site-footer__brand" href="/">
+        <img class="site-footer__logo" src="https://assets.cdn.filesafe.space/URLV5WPtDX0lzOYCl4Z9/media/69f892598de8b0ffd968a5a9.svg" alt="RiseON Suite">
+      </a>
+      <p class="site-footer__copy">AI-powered career tools for stronger profiles, smarter applications, and confident interview preparation.</p>
+    </div>
+
+    <div>
+      <h2 class="site-footer__title">Products</h2>
+      <ul class="site-footer__list">
+        <li><a href="/riseon-profile">Profiles</a></li>
+        <li><a href="/riseon-studio">Studio</a></li>
+        <li><a href="/ai-interviewer">Interview</a></li>
+        <li><a href="/ai-cover-letter">Cover Letter</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h2 class="site-footer__title">Resources</h2>
+      <ul class="site-footer__list">
+        <li><a href="/hiring-platform">HR Partner</a></li>
+        <li><a href="/pricing">Pricing</a></li>
+        <li><a href="/contact">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h2 class="site-footer__title">Company</h2>
+      <ul class="site-footer__list">
+        <li><a href="/about-us">About Us</a></li>
+        <li><a href="/privacy-policy">Privacy Policy</a></li>
+        <li><a href="/terms-and-conditions">Terms & Conditions</a></li>
+        <li><a href="/contact">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container site-footer__bottom">
+    <span>&copy; 2026 RiseON Suite. All rights reserved.</span>
+    <span>Empowering your career, one profile at a time.</span>
+  </div>
+</footer>
+
+<script>
+  (() => {
+    const yearNodes = document.querySelectorAll("[data-current-year]");
+    yearNodes.forEach((node) => {
+      node.textContent = String(new Date().getFullYear());
+    });
+  })();
+</script>
