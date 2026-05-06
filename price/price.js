@@ -18,9 +18,14 @@ const includeFragments = async () => {
 };
 
 const setupReveal = () => {
-  const nodes = document.querySelectorAll(".price-card, .guarantee-card, .pricing-proof__grid");
+  const nodes = document.querySelectorAll(
+    ".pricing-hero__copy, .pricing-hero__panel, .section-heading, .price-card, .guarantee-card, .pricing-proof__grid div"
+  );
 
-  nodes.forEach((node) => node.classList.add("reveal-on-scroll"));
+  nodes.forEach((node, index) => {
+    node.classList.add("reveal-on-scroll");
+    node.style.setProperty("--reveal-delay", `${Math.min(index % 8, 7) * 80}ms`);
+  });
 
   const observer = new IntersectionObserver(
     (entries) => {

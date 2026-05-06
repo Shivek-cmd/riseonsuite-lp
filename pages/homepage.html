@@ -12,30 +12,50 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&family=Lora:wght@400;700&family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../root.css">
-    <link rel="stylesheet" href="./homepage.css">
+    <link rel="stylesheet" href="./homepage.css?v=20260506-testimonial-avatars">
   </head>
   <body>
     <div data-include="../global/header.html"></div>
 
     <main>
       <section class="hero" id="top">
+        <div class="hero-carousel" aria-hidden="true">
+          <div class="hero-carousel__slide is-active">
+            <img src="https://images.pexels.com/photos/5989927/pexels-photo-5989927.jpeg?auto=compress&cs=tinysrgb&w=1800" alt="">
+          </div>
+          <div class="hero-carousel__slide">
+            <img src="https://images.pexels.com/photos/7693683/pexels-photo-7693683.jpeg?auto=compress&cs=tinysrgb&w=1800" alt="">
+          </div>
+          <div class="hero-carousel__slide">
+            <img src="https://images.pexels.com/photos/9222396/pexels-photo-9222396.jpeg?auto=compress&cs=tinysrgb&w=1800" alt="">
+          </div>
+          <div class="hero-carousel__slide">
+            <img src="https://images.pexels.com/photos/8296980/pexels-photo-8296980.jpeg?auto=compress&cs=tinysrgb&w=1800" alt="">
+          </div>
+        </div>
         <div class="container hero__grid">
           <div class="hero__copy">
-            <p class="hero__pill">RiseON Suite</p>
-            <h1>Land your next job <span>3x faster</span> with AI on your side.</h1>
-            <p class="hero__lead">
+            <p class="hero__pill" data-hero-kicker>RiseON Suite</p>
+            <h1 data-hero-title>Land your next job <span>3x faster</span> with AI on your side.</h1>
+            <p class="hero__lead" data-hero-description>
               RiseON Suite turns your resume, applications, and interviews into a system that actually gets you hired. Built for new grads and mid-career pros tired of getting ghosted.
             </p>
             <div class="hero__actions">
               <a class="btn btn--primary btn--large" href="https://riseon.happypeopleai.com/signup">Start Your Free Trial</a>
               <a class="btn btn--secondary btn--large" href="#features">See How It Works</a>
             </div>
-            <div class="hero__trust" aria-label="RiseON Suite highlights">
+            <div class="hero__trust" aria-label="RiseON Suite highlights" data-hero-trust>
               <span>100% money-back guarantee</span>
               <span>No credit card required</span>
               <span>450,000+ AI career interactions</span>
             </div>
           </div>
+        </div>
+        <div class="hero-carousel__controls" aria-label="Hero carousel controls">
+          <button class="is-active" type="button" aria-label="Show resume builder slide" data-hero-dot="0"></button>
+          <button type="button" aria-label="Show job matching slide" data-hero-dot="1"></button>
+          <button type="button" aria-label="Show interview prep slide" data-hero-dot="2"></button>
+          <button type="button" aria-label="Show application tracking slide" data-hero-dot="3"></button>
         </div>
       </section>
 
@@ -60,75 +80,105 @@
         </div>
       </section>
 
+      <section class="logo-marquee" aria-label="Career paths across leading global companies">
+        <div class="container logo-marquee__inner">
+          <p>Built for candidates targeting competitive teams across global companies</p>
+          <div class="logo-marquee__viewport">
+            <div class="logo-marquee__track">
+              <span>Google</span>
+              <span>Microsoft</span>
+              <span>Amazon</span>
+              <span>IBM</span>
+              <span>Deloitte</span>
+              <span>Accenture</span>
+              <span>Infosys</span>
+              <span>TCS</span>
+              <span>Wipro</span>
+              <span>Capgemini</span>
+              <span aria-hidden="true">Google</span>
+              <span aria-hidden="true">Microsoft</span>
+              <span aria-hidden="true">Amazon</span>
+              <span aria-hidden="true">IBM</span>
+              <span aria-hidden="true">Deloitte</span>
+              <span aria-hidden="true">Accenture</span>
+              <span aria-hidden="true">Infosys</span>
+              <span aria-hidden="true">TCS</span>
+              <span aria-hidden="true">Wipro</span>
+              <span aria-hidden="true">Capgemini</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section class="section workflow" id="features">
         <div class="container">
-          <div class="section-heading">
-            <p class="eyebrow">Your job search system</p>
-            <h2>From ignored applications to interview callbacks</h2>
-            <p>RiseON turns scattered job-search tasks into one focused system built to help you get shortlisted, prepared, and hired faster.</p>
-          </div>
-          <div class="workflow__experience" data-workflow>
-            <div class="workflow__tabs" aria-label="RiseON career workflow">
-              <article class="workflow-card is-active" data-workflow-step="0">
-                <span>01</span>
-                <div>
-                  <h3>Get Seen</h3>
-                  <p>Build an ATS-ready resume and interactive profile that makes recruiters understand your value faster.</p>
-                </div>
-              </article>
-              <article class="workflow-card" data-workflow-step="1">
-                <span>02</span>
-                <div>
-                  <h3>Get Matched</h3>
-                  <p>Find roles where you are already a strong fit, then tailor your profile and application for each job.</p>
-                </div>
-              </article>
-              <article class="workflow-card" data-workflow-step="2">
-                <span>03</span>
-                <div>
-                  <h3>Get Interview-Ready</h3>
-                  <p>Practice with AI mock interviews, improve weak answers, and walk into interviews with structure and confidence.</p>
-                </div>
-              </article>
-              <article class="workflow-card" data-workflow-step="3">
-                <span>04</span>
-                <div>
-                  <h3>Get Hired</h3>
-                  <p>Track every application, follow-up, response, and interview so no opportunity slips through the cracks.</p>
-                </div>
-              </article>
+            <div class="section-heading">
+              <p class="eyebrow">Your job search system</p>
+              <h2>From ignored applications to interview callbacks</h2>
+              <p>RiseON turns scattered job-search tasks into one focused system built to help you get shortlisted, prepared, and hired faster.</p>
             </div>
-            <div class="workflow-visual" aria-live="polite">
-              <div class="workflow-visual__panel is-active" data-workflow-panel="0">
-                <img src="https://images.pexels.com/photos/8121860/pexels-photo-8121860.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Professional building a resume and profile on a laptop">
-                <div class="workflow-visual__caption">
-                  <span>Get seen</span>
-                  <strong>Create the profile recruiters actually want to read.</strong>
-                </div>
+            <div class="workflow__experience" data-workflow>
+              <div class="workflow__tabs" aria-label="RiseON career workflow">
+                <article class="workflow-card is-active" data-workflow-step="0">
+                  <span>01</span>
+                  <div>
+                    <h3>Get Seen</h3>
+                    <p>Build an ATS-ready resume and interactive profile that makes recruiters understand your value faster.</p>
+                  </div>
+                </article>
+                <article class="workflow-card" data-workflow-step="1">
+                  <span>02</span>
+                  <div>
+                    <h3>Get Matched</h3>
+                    <p>Find roles where you are already a strong fit, then tailor your profile and application for each job.</p>
+                  </div>
+                </article>
+                <article class="workflow-card" data-workflow-step="2">
+                  <span>03</span>
+                  <div>
+                    <h3>Get Interview-Ready</h3>
+                    <p>Practice with AI mock interviews, improve weak answers, and walk into interviews with structure and confidence.</p>
+                  </div>
+                </article>
+                <article class="workflow-card" data-workflow-step="3">
+                  <span>04</span>
+                  <div>
+                    <h3>Get Hired</h3>
+                    <p>Track every application, follow-up, response, and interview so no opportunity slips through the cracks.</p>
+                  </div>
+                </article>
               </div>
-              <div class="workflow-visual__panel" data-workflow-panel="1">
-                <img src="https://images.pexels.com/photos/7255775/pexels-photo-7255775.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Professional improving digital career content on a laptop">
-                <div class="workflow-visual__caption">
-                  <span>Get matched</span>
-                  <strong>Focus on jobs where your profile already has momentum.</strong>
+              <div class="workflow-visual" aria-live="polite">
+                <div class="workflow-visual__panel is-active" data-workflow-panel="0">
+                  <img src="https://images.pexels.com/photos/8121860/pexels-photo-8121860.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Professional building a resume and profile on a laptop">
+                  <div class="workflow-visual__caption">
+                    <span>Get seen</span>
+                    <strong>Create the profile recruiters actually want to read.</strong>
+                  </div>
                 </div>
-              </div>
-              <div class="workflow-visual__panel" data-workflow-panel="2">
-                <img src="https://images.pexels.com/photos/9222396/pexels-photo-9222396.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Professional preparing for an interview on a laptop">
-                <div class="workflow-visual__caption">
-                  <span>Get interview-ready</span>
-                  <strong>Practice, improve, and walk in with confidence.</strong>
+                <div class="workflow-visual__panel" data-workflow-panel="1">
+                  <img src="https://images.pexels.com/photos/7255775/pexels-photo-7255775.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Professional improving digital career content on a laptop">
+                  <div class="workflow-visual__caption">
+                    <span>Get matched</span>
+                    <strong>Focus on jobs where your profile already has momentum.</strong>
+                  </div>
                 </div>
-              </div>
-              <div class="workflow-visual__panel" data-workflow-panel="3">
-                <img src="https://images.pexels.com/photos/8296980/pexels-photo-8296980.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Application tracking and job search planning on a laptop">
-                <div class="workflow-visual__caption">
-                  <span>Get hired</span>
-                  <strong>Stay on top of every application, interview, and follow-up.</strong>
+                <div class="workflow-visual__panel" data-workflow-panel="2">
+                  <img src="https://images.pexels.com/photos/9222396/pexels-photo-9222396.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Professional preparing for an interview on a laptop">
+                  <div class="workflow-visual__caption">
+                    <span>Get interview-ready</span>
+                    <strong>Practice, improve, and walk in with confidence.</strong>
+                  </div>
+                </div>
+                <div class="workflow-visual__panel" data-workflow-panel="3">
+                  <img src="https://images.pexels.com/photos/8296980/pexels-photo-8296980.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Application tracking and job search planning on a laptop">
+                  <div class="workflow-visual__caption">
+                    <span>Get hired</span>
+                    <strong>Stay on top of every application, interview, and follow-up.</strong>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
         </div>
       </section>
 
@@ -329,7 +379,7 @@
                   <div class="testimonial-stars" aria-label="5 star rating">★★★★★</div>
                   <p>"RiseON helped me rewrite my resume for the roles I actually wanted. I started getting responses instead of silence."</p>
                   <div class="testimonial-card__meta">
-                    <div class="testimonial-avatar">SM</div>
+                    <div class="testimonial-avatar"><img src="https://i.pravatar.cc/120?img=47" alt="Sarah Mitchell"></div>
                     <div>
                       <strong>Sarah Mitchell</strong>
                       <span>Marketing Manager</span>
@@ -340,7 +390,7 @@
                   <div class="testimonial-stars" aria-label="5 star rating">★★★★★</div>
                   <p>"The job matching and application tracking made my search feel structured. I knew exactly what to apply to next."</p>
                   <div class="testimonial-card__meta">
-                    <div class="testimonial-avatar">RP</div>
+                    <div class="testimonial-avatar"><img src="https://i.pravatar.cc/120?img=12" alt="Rajesh Patel"></div>
                     <div>
                       <strong>Rajesh Patel</strong>
                       <span>Product Analyst</span>
@@ -351,7 +401,7 @@
                   <div class="testimonial-stars" aria-label="5 star rating">★★★★★</div>
                   <p>"As a new graduate, I stopped guessing. RiseON gave me a clearer profile, better applications, and a daily path forward."</p>
                   <div class="testimonial-card__meta">
-                    <div class="testimonial-avatar">AF</div>
+                    <div class="testimonial-avatar"><img src="https://i.pravatar.cc/120?img=32" alt="Aisha Fernandes"></div>
                     <div>
                       <strong>Aisha Fernandes</strong>
                       <span>Graduate Trainee</span>
@@ -365,7 +415,7 @@
               <div class="testimonial-stars" aria-label="5 star rating">★★★★★</div>
               <p>"The interview practice and tailored applications changed the way I searched. I stopped sending generic resumes and started walking into interviews with a plan."</p>
               <div class="testimonial-card__meta">
-                <div class="testimonial-avatar">DL</div>
+                <div class="testimonial-avatar"><img src="https://i.pravatar.cc/120?img=59" alt="David Lister"></div>
                 <div>
                   <strong>David Lister</strong>
                   <span>Software Engineer</span>
@@ -379,7 +429,7 @@
                   <div class="testimonial-stars" aria-label="5 star rating">★★★★★</div>
                   <p>"Profile IQ helped me explain my projects clearly, so recruiters could understand my fit much faster."</p>
                   <div class="testimonial-card__meta">
-                    <div class="testimonial-avatar">NS</div>
+                    <div class="testimonial-avatar"><img src="https://i.pravatar.cc/120?img=44" alt="Naheeda S."></div>
                     <div>
                       <strong>Naheeda S.</strong>
                       <span>HR Specialist</span>
@@ -390,7 +440,7 @@
                   <div class="testimonial-stars" aria-label="5 star rating">★★★★★</div>
                   <p>"I used RiseON to prepare answers, send better applications, and follow up without losing track."</p>
                   <div class="testimonial-card__meta">
-                    <div class="testimonial-avatar">AK</div>
+                    <div class="testimonial-avatar"><img src="https://i.pravatar.cc/120?img=68" alt="Arun Kumar"></div>
                     <div>
                       <strong>Arun Kumar</strong>
                       <span>Operations Lead</span>
@@ -401,7 +451,7 @@
                   <div class="testimonial-stars" aria-label="5 star rating">★★★★★</div>
                   <p>"The dashboard helped me see what was working, what needed follow-up, and where my next interview might come from."</p>
                   <div class="testimonial-card__meta">
-                    <div class="testimonial-avatar">SS</div>
+                    <div class="testimonial-avatar"><img src="https://i.pravatar.cc/120?img=49" alt="Shalini Sharma"></div>
                     <div>
                       <strong>Shalini Sharma</strong>
                       <span>Business Analyst</span>
@@ -504,6 +554,6 @@
 
     <div data-include="../global/footer.html"></div>
 
-    <script src="./homepage.js"></script>
+    <script src="./homepage.js?v=20260506-testimonial-avatars"></script>
   </body>
 </html>
