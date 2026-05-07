@@ -35,6 +35,22 @@ body {
   line-height: 1.65;
 }
 
+.pricing-region {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+  margin-inline: auto;
+  padding: 0.45rem 0.75rem;
+  border: 1px solid rgba(5, 113, 190, 0.18);
+  border-radius: var(--radius-full);
+  color: var(--color-muted);
+  background: var(--color-surface);
+  font-size: var(--text-sm);
+  font-weight: 700;
+}
+
 .pricing-hero {
   position: relative;
   isolation: isolate;

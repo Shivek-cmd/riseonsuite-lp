@@ -42,8 +42,71 @@ const setupReveal = () => {
   nodes.forEach((node) => observer.observe(node));
 };
 
+const geolocationApis = [
+  "https://ipapi.co/json",
+  "https://ipinfo.io?token=c08b35d57c890c",
+  "https://api.ipstack.com/check?access_key=cac325ffe7b7df5a04e5f579a32ebdc4",
+  "https://get.geojs.io/v1/ip/geo.json",
+];
+
+const getCountryCode = (data) => {
+  const countryValue = data.country || data.country_code || data.countryCode || data.country_name;
+  const countryName = data.country_name || data.countryName || data.country;
+
+  if (!countryValue && !countryName) return null;
+
+  const normalizedCode = String(countryValue || "").trim().toUpperCase();
+  const normalizedName = String(countryName || "").trim().toLowerCase();
+
+  if (normalizedCode === "IN" || normalizedName === "india") {
+    return "IN";
+  }
+
+  return normalizedCode || null;
+};
+
+const applyPricingCurrency = (currency) => {
+  const priceNodes = document.querySelectorAll("[data-price]");
+  const regionNode = document.querySelector("[data-pricing-region]");
+  const priceKey = currency === "INR" ? "priceInr" : "priceUsd";
+
+  priceNodes.forEach((node) => {
+    node.textContent = node.dataset[priceKey] || node.textContent;
+  });
+
+  if (regionNode) {
+    regionNode.textContent = currency === "INR"
+      ? "Showing INR pricing for India"
+      : "Showing USD pricing for your region";
+  }
+};
+
+const fetchUserLocation = async () => {
+  applyPricingCurrency("USD");
+
+  for (const api of geolocationApis) {
+    try {
+      const response = await fetch(api, { cache: "no-store" });
+      if (!response.ok) continue;
+
+      const data = await response.json();
+      const countryCode = getCountryCode(data);
+
+      if (countryCode) {
+        applyPricingCurrency(countryCode === "IN" ? "INR" : "USD");
+        return;
+      }
+    } catch (error) {
+      console.warn("Unable to detect pricing region:", error);
+    }
+  }
+
+  applyPricingCurrency("USD");
+};
+
 const init = async () => {
   await includeFragments();
+  fetchUserLocation();
   setupReveal();
 };
 
