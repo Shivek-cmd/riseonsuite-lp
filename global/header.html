@@ -39,12 +39,14 @@
     font-weight: 500;
   }
 
-  .site-header__nav a {
+  .site-header__nav a,
+  .site-header__submenu-button {
     position: relative;
     padding-block: 0.35rem;
   }
 
-  .site-header__nav a::after {
+  .site-header__nav a::after,
+  .site-header__submenu-button::after {
     position: absolute;
     right: 0;
     bottom: 0;
@@ -58,8 +60,87 @@
   }
 
   .site-header__nav a:hover::after,
-  .site-header__nav a:focus-visible::after {
+  .site-header__nav a:focus-visible::after,
+  .site-header__submenu:hover .site-header__submenu-button::after,
+  .site-header__submenu:focus-within .site-header__submenu-button::after {
     transform: scaleX(1);
+  }
+
+  .site-header__submenu {
+    position: relative;
+  }
+
+  .site-header__submenu-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: var(--color-dark);
+    background: transparent;
+    font-size: inherit;
+    font-weight: inherit;
+  }
+
+  .site-header__submenu-button span {
+    width: 0.45rem;
+    height: 0.45rem;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(45deg) translateY(-1px);
+    transition: transform var(--ease);
+  }
+
+  .site-header__submenu:hover .site-header__submenu-button span,
+  .site-header__submenu:focus-within .site-header__submenu-button span,
+  .site-header__submenu.is-open .site-header__submenu-button span {
+    transform: rotate(225deg) translateY(-1px);
+  }
+
+  .site-header__submenu-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    display: grid;
+    min-width: 220px;
+    gap: 0.25rem;
+    padding: 1.4rem 0.6rem 0.6rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: rgba(255, 255, 255, 0.98);
+    background-clip: padding-box;
+    box-shadow: 0 18px 44px rgba(0, 3, 33, 0.12);
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, 8px);
+    transition: opacity var(--ease), transform var(--ease);
+  }
+
+  .site-header__submenu:hover .site-header__submenu-menu,
+  .site-header__submenu:focus-within .site-header__submenu-menu,
+  .site-header__submenu.is-open .site-header__submenu-menu {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, 0);
+  }
+
+  .site-header__submenu-menu a {
+    padding: 0.75rem 0.85rem;
+    border-radius: var(--radius-sm);
+    color: var(--color-dark);
+    transition: background-color var(--ease), color var(--ease);
+  }
+
+  .site-header__submenu-menu a:first-child {
+    margin-top: 0;
+  }
+
+  .site-header__submenu-menu a::after {
+    display: none;
+  }
+
+  .site-header__submenu-menu a:hover,
+  .site-header__submenu-menu a:focus-visible {
+    color: var(--color-primary);
+    background: var(--color-primary-soft);
   }
 
   .site-header__actions {
@@ -189,6 +270,28 @@
       align-items: stretch;
       flex-direction: column;
     }
+
+    .site-header__submenu-button {
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .site-header__submenu-menu {
+      position: static;
+      display: none;
+      min-width: 0;
+      margin-top: 0.35rem;
+      padding: 0.35rem;
+      box-shadow: none;
+      opacity: 1;
+      pointer-events: auto;
+      transform: none;
+    }
+
+    .site-header__submenu.is-open .site-header__submenu-menu,
+    .site-header__submenu:focus-within .site-header__submenu-menu {
+      display: grid;
+    }
   }
 </style>
 
@@ -201,10 +304,16 @@
     <nav class="site-header__nav" aria-label="Primary navigation">
       <a href="/">Home</a>
       <a href="/pricing">Pricing</a>
-      <a href="/hr-partner/">HR Partner</a>
-      <a href="/institute-partner/">Institutes</a>
-      <a href="/about-us">About Us</a>
-      <a href="/contact">Contact Us</a>
+      <div class="site-header__submenu" data-partners-submenu>
+        <button class="site-header__submenu-button" type="button" aria-expanded="false" data-partners-toggle>
+          Partners <span aria-hidden="true"></span>
+        </button>
+        <div class="site-header__submenu-menu" aria-label="Partner pages">
+           <a href="/institute-partner/">Universities/Institutes</a>
+          <a href="/hr-partner/">HR Partner</a>   
+        </div>
+      </div>
+      <a href="https://happypeopleai.com/blog">Blogs</a>
     </nav>
 
     <div class="site-header__actions">
@@ -222,12 +331,22 @@
   (() => {
     const header = document.querySelector("[data-site-header]");
     const menu = document.querySelector("[data-site-menu]");
+    const partnersSubmenu = document.querySelector("[data-partners-submenu]");
+    const partnersToggle = document.querySelector("[data-partners-toggle]");
 
     if (!header || !menu) return;
 
     menu.addEventListener("click", () => {
       const isOpen = header.classList.toggle("is-open");
       menu.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    if (!partnersSubmenu || !partnersToggle) return;
+
+    partnersToggle.addEventListener("click", () => {
+      if (!window.matchMedia("(max-width: 900px)").matches) return;
+      const isOpen = partnersSubmenu.classList.toggle("is-open");
+      partnersToggle.setAttribute("aria-expanded", String(isOpen));
     });
   })();
 </script>

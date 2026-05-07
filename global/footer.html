@@ -41,6 +41,38 @@
     list-style: none;
   }
 
+  .site-footer__social {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0.35rem;
+    margin-top: 1.25rem;
+  }
+
+  .site-footer__social a {
+    display: inline-flex;
+    width: 2rem;
+    height:2rem;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-full);
+    background: var(--color-surface);
+    transition: border-color var(--ease), transform var(--ease), box-shadow var(--ease);
+  }
+
+  .site-footer__social a:hover,
+  .site-footer__social a:focus-visible {
+    border-color: rgba(245, 158, 11, 0.45);
+    box-shadow: 0 10px 24px rgba(0, 3, 33, 0.08);
+    transform: translateY(-3px);
+  }
+
+  .site-footer__social img {
+    width: 1.05rem;
+    height: 1.05rem;
+    object-fit: contain;
+  }
+
   .site-footer__bottom {
     display: flex;
     align-items: center;
@@ -48,6 +80,12 @@
     gap: 1rem;
     padding-block: 1.25rem;
     border-top: 1px solid var(--color-border);
+    font-size: var(--text-sm);
+  }
+
+  .site-footer__tagline {
+    padding-bottom: 1.25rem;
+    color: var(--color-muted);
     font-size: var(--text-sm);
   }
 
@@ -76,44 +114,63 @@
       <a class="site-footer__brand" href="/">
         <img class="site-footer__logo" src="https://assets.cdn.filesafe.space/URLV5WPtDX0lzOYCl4Z9/media/69f892598de8b0ffd968a5a9.svg" alt="RiseON Suite">
       </a>
-      <p class="site-footer__copy">AI-powered career tools for stronger profiles, smarter applications, and confident interview preparation.</p>
+      <p class="site-footer__copy">Helping job seekers turn stronger profiles, smarter applications, and better interview preparation into real career opportunities.</p>
     </div>
 
     <div>
-      <h2 class="site-footer__title">For Candidates</h2>
+      <h2 class="site-footer__title">Explore</h2>
       <ul class="site-footer__list">
         <li><a href="/">Home</a></li>
         <li><a href="/pricing">Pricing</a></li>
-        <li><a href="/riseon-profile">Profiles</a></li>
-        <li><a href="/riseon-studio">Studio</a></li>
-        <li><a href="/ai-interviewer">Interview</a></li>
-        <li><a href="/ai-cover-letter">Cover Letter</a></li>
-      </ul>
-    </div>
-
-    <div>
-      <h2 class="site-footer__title">For Partners</h2>
-      <ul class="site-footer__list">
         <li><a href="/hr-partner/">HR Partner</a></li>
-        <li><a href="/institute-partner/">Institute Partner</a></li>
-        <li><a href="/contact">Contact Us</a></li>
+        <li><a href="/institute-partner/">University/Institutes</a></li>
       </ul>
     </div>
 
     <div>
       <h2 class="site-footer__title">Company</h2>
       <ul class="site-footer__list">
-        <li><a href="/about-us">About Us</a></li>
-        <li><a href="/privacy-policy">Privacy Policy</a></li>
-        <li><a href="/terms-and-conditions">Terms & Conditions</a></li>
-        <li><a href="/contact">Contact Us</a></li>
+        <li><a href="https://happypeopleai.com/about-us">About Us</a></li>
+        <li><a href="https://happypeopleai.com/about-us#contact">Contact Us</a></li>
+        <li><a href="https://happypeopleai.com/blog">Blogs</a></li>
       </ul>
+    </div>
+
+    <div>
+      <h2 class="site-footer__title">Legal</h2>
+      <ul class="site-footer__list">
+        <li><a href="https://happypeopleai.com/privacy-policy">Privacy Policy</a></li>
+        <li><a href="https://happypeopleai.com/terms-and-conditions">Terms & Conditions</a></li>
+      </ul>
+      <div class="site-footer__social" aria-label="Social media links">
+        <a href="https://www.whatsapp.com/channel/0029VafJzXoAu3aNv2gakJ2Z" target="_blank" rel="noopener noreferrer">
+          <img loading="lazy" src="https://assets.cdn.filesafe.space/URLV5WPtDX0lzOYCl4Z9/media/69fc30f5516b813067f62f63.svg" alt="WhatsApp">
+        </a>
+        <a href="https://www.linkedin.com/company/happy-people-ai/mycompany/" target="_blank" rel="noopener noreferrer">
+          <img loading="lazy" src="https://assets.cdn.filesafe.space/URLV5WPtDX0lzOYCl4Z9/media/69fc30f59594baa062105a24.svg" alt="LinkedIn">
+        </a>
+        <a href="https://discord.com/invite/XpfwAJhN" target="_blank" rel="noopener noreferrer">
+          <img loading="lazy" src="https://assets.cdn.filesafe.space/URLV5WPtDX0lzOYCl4Z9/media/69fc30f59594baa062105a23.svg" alt="Discord">
+        </a>
+        <a href="https://www.instagram.com/happypeopleai" target="_blank" rel="noopener noreferrer">
+          <img loading="lazy" src="https://assets.cdn.filesafe.space/URLV5WPtDX0lzOYCl4Z9/media/69fc30f59594baa062105a26.svg" alt="Instagram">
+        </a>
+        <a href="https://www.facebook.com/HappyPeopleAi/" target="_blank" rel="noopener noreferrer">
+          <img loading="lazy" src="https://assets.cdn.filesafe.space/URLV5WPtDX0lzOYCl4Z9/media/69fc30f5a6982c1655a97f65.svg" alt="Facebook">
+        </a>
+        <a href="https://www.youtube.com/@HappyPeopleAI" target="_blank" rel="noopener noreferrer">
+          <img loading="lazy" src="https://assets.cdn.filesafe.space/URLV5WPtDX0lzOYCl4Z9/media/69fc30f6cc7c6e6933fdc379.svg" alt="YouTube">
+        </a>
+        <a href="https://x.com/happypeopleai" target="_blank" rel="noopener noreferrer">
+          <img loading="lazy" src="https://assets.cdn.filesafe.space/URLV5WPtDX0lzOYCl4Z9/media/69fc30f5a6982c1655a97f66.svg" alt="X">
+        </a>
+      </div>
     </div>
   </div>
 
   <div class="container site-footer__bottom">
     <span>&copy; 2026 RiseON Suite. All rights reserved.</span>
-    <span>Empowering your career, one profile at a time.</span>
+    <span>Helping job seekers get seen, get prepared, and get hired faster.</span>
   </div>
 </footer>
 
