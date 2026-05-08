@@ -84,7 +84,7 @@ const setupHeroCarousel = () => {
       kicker: "RiseON Suite",
       title: 'Land your next job <span>3x faster</span> with AI on your side.',
       description:
-        "RiseON Suite turns your resume, applications, and interviews into a system that actually gets you hired. Built for new grads and mid-career pros tired of getting ghosted.",
+        "RiseON Suite turns your resume, applications, and interviews into a system that actually gets you hired. Built for candidates tired of getting ghosted.",
       trust: ["100% money-back guarantee", "No credit card required", "450,000+ AI career interactions"],
     },
     {

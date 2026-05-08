@@ -19,7 +19,7 @@ const includeFragments = async () => {
 
 const setupReveal = () => {
   const nodes = document.querySelectorAll(
-    ".pricing-hero__copy, .pricing-hero__panel, .section-heading, .price-card, .guarantee-card, .pricing-proof__grid div"
+    ".pricing-hero__copy, .pricing-hero__panel, .section-heading, .gem-guide, .price-card, .guarantee-card, .pricing-proof__grid div"
   );
 
   nodes.forEach((node, index) => {
