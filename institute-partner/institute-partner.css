@@ -158,18 +158,28 @@ body {
   margin-top: 2rem;
 }
 
-.institute-hero .btn--secondary,
-.institute-cta .btn--secondary {
+.institute-hero .btn--secondary {
   color: var(--color-surface);
   background: transparent;
   border-color: rgba(255, 255, 255, 0.34);
 }
 
-.institute-hero .btn--secondary:hover,
-.institute-cta .btn--secondary:hover {
+.institute-hero .btn--secondary:hover {
   color: var(--color-dark);
   background: var(--color-surface);
   border-color: var(--color-surface);
+}
+
+.institute-cta .btn--secondary {
+  color: var(--color-primary);
+  background: var(--color-surface);
+  border-color: var(--color-primary);
+}
+
+.institute-cta .btn--secondary:hover {
+  color: var(--color-surface);
+  background: var(--color-primary);
+  border-color: var(--color-primary);
 }
 
 .institute-hero__brandline {
@@ -609,18 +619,21 @@ body {
 
 .institute-cta {
   padding-block: 4rem;
-  color: var(--color-surface);
-  background: var(--color-dark);
+  color: var(--color-text);
+  background: var(--color-surface);
   border-top: 4px solid var(--color-warning);
 }
 
-.institute-cta .eyebrow,
+.institute-cta .eyebrow {
+  color: var(--color-warning);
+}
+
 .institute-cta h2 {
-  color: var(--color-surface);
+  color: var(--color-dark);
 }
 
 .institute-cta p:not(.eyebrow) {
-  color: rgba(255, 255, 255, 0.72);
+  color: var(--color-muted);
 }
 
 .institute-cta__inner {

@@ -134,18 +134,28 @@ body {
   margin-top: 2rem;
 }
 
-.resellor-hero .btn--secondary,
-.resellor-cta .btn--secondary {
+.resellor-hero .btn--secondary {
   color: var(--color-surface);
   background: transparent;
   border-color: rgba(255, 255, 255, 0.34);
 }
 
-.resellor-hero .btn--secondary:hover,
-.resellor-cta .btn--secondary:hover {
+.resellor-hero .btn--secondary:hover {
   color: var(--color-dark);
   background: var(--color-surface);
   border-color: var(--color-surface);
+}
+
+.resellor-cta .btn--secondary {
+  color: var(--color-primary);
+  background: var(--color-surface);
+  border-color: var(--color-primary);
+}
+
+.resellor-cta .btn--secondary:hover {
+  color: var(--color-surface);
+  background: var(--color-primary);
+  border-color: var(--color-primary);
 }
 
 .resellor-hero__note {
@@ -801,18 +811,21 @@ body {
 
 .resellor-cta {
   padding-block: 4rem;
-  color: var(--color-surface);
-  background: var(--color-dark);
+  color: var(--color-text);
+  background: var(--color-surface);
   border-top: 4px solid var(--color-warning);
 }
 
-.resellor-cta .eyebrow,
+.resellor-cta .eyebrow {
+  color: var(--color-warning);
+}
+
 .resellor-cta h2 {
-  color: var(--color-surface);
+  color: var(--color-dark);
 }
 
 .resellor-cta p:not(.eyebrow) {
-  color: rgba(255, 255, 255, 0.72);
+  color: var(--color-muted);
 }
 
 .resellor-cta__inner {
